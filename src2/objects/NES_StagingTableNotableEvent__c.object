@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Notable_Event_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Notable_Event_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>NES_Account__c</fields>
+        <fields>NES_Asset__c</fields>
+        <fields>NES_Status__c</fields>
+        <fields>NES_Type__c</fields>
+        <label>Notable Event Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Asset_Module__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Module</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>NES_StagingTableNotableEvents (Asset Module)</relationshipLabel>
+        <relationshipName>NES_StagingTableNotableEvents</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractLineItemMirror__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Mirror Chassis</label>
+        <referenceTo>ContractLineItemMirror__c</referenceTo>
+        <relationshipLabel>Notable Events</relationshipLabel>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractLineItemModuleMirror__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Module Mirror</label>
+        <referenceTo>ContractLineItemMirror__c</referenceTo>
+        <relationshipLabel>NES_StagingTableNotableEvents (Contract Line Item Module Mirror)</relationshipLabel>
+        <relationshipName>NES_StagingTableNotableEvents</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Line_Item_Module__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Module</label>
+        <referenceTo>ContractLineItem</referenceTo>
+        <relationshipLabel>NES_StagingTableNotableEvents (Contract Line Item Module)</relationshipLabel>
+        <relationshipName>NES_StagingTableNotableEvents</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Notable Events</relationshipLabel>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Notable Events</relationshipLabel>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_ContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Chassis</label>
+        <referenceTo>ContractLineItem</referenceTo>
+        <relationshipLabel>Notable Events</relationshipLabel>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Date__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <description>Date and time when the event was triggered (may be different than the creation date)</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NES_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NES_EventCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EventValidity__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Validity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alarm Valid</fullName>
+                    <default>false</default>
+                    <label>Alarm Valid</label>
+                </value>
+                <value>
+                    <fullName>Alarm Actionable</fullName>
+                    <default>false</default>
+                    <label>Alarm Actionable</label>
+                </value>
+                <value>
+                    <fullName>Resolution Mismatch to Alarm</fullName>
+                    <default>false</default>
+                    <label>Resolution Mismatch to Alarm</label>
+                </value>
+                <value>
+                    <fullName>Alarm Not Actionable</fullName>
+                    <default>false</default>
+                    <label>Alarm Not Actionable</label>
+                </value>
+                <value>
+                    <fullName>Alarm Invalid</fullName>
+                    <default>false</default>
+                    <label>Alarm Invalid</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_Event_Log__c</fullName>
+        <description>Unique key of the event log record in the staging table</description>
+        <externalId>false</externalId>
+        <label>Event Log</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_HandledBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Handled By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_HandledDate__c</fullName>
+        <description>Date when the status of the Notable event was set to Handled</description>
+        <externalId>false</externalId>
+        <label>Handled Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NES_NoOfTasks__c</fullName>
+        <description>Auto-populated Task Counter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows the number of tasks associated to the Notable Event</inlineHelpText>
+        <label>No of Tasks</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_NotableEvent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Notable Event</label>
+        <referenceTo>NES_NotableEvent__c</referenceTo>
+        <relationshipLabel>Notable Events</relationshipLabel>
+        <relationshipName>Staging_Notable_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Normal</fullName>
+                    <default>false</default>
+                    <label>Normal</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Handled</fullName>
+                    <default>false</default>
+                    <label>Handled</label>
+                </value>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Component Breakdown</fullName>
+                    <default>false</default>
+                    <label>Component Breakdown</label>
+                </value>
+                <value>
+                    <fullName>Operational</fullName>
+                    <default>false</default>
+                    <label>Operational</label>
+                </value>
+                <value>
+                    <fullName>Connectivity</fullName>
+                    <default>false</default>
+                    <label>Connectivity</label>
+                </value>
+                <value>
+                    <fullName>Commercial</fullName>
+                    <default>false</default>
+                    <label>Commercial</label>
+                </value>
+                <value>
+                    <fullName>Machine Maintenance</fullName>
+                    <default>false</default>
+                    <label>Machine Maintenance</label>
+                </value>
+                <value>
+                    <fullName>Backend</fullName>
+                    <default>false</default>
+                    <label>Backend</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Config</fullName>
+                    <default>false</default>
+                    <label>Config</label>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Next_Best_Action__c</fullName>
+        <description>Next Best Action to be triggered once a Notable Event is raised</description>
+        <externalId>false</externalId>
+        <label>Next Best Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>NextBestAction</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NoOfCompletedTasks__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Completed Tasks</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <displayFormat>{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>UniqueKey__c</fullName>
+        <externalId>true</externalId>
+        <label>UniqueKey</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>NES_StagingTableNotableEvent</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>NES_EventCode__c</columns>
+        <columns>NES_Event_Log__c</columns>
+        <columns>Next_Best_Action__c</columns>
+        <columns>UniqueKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>NES_StagingTableNotableEvents</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields>NES_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>NES_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>NES_HandledBy__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>NES_NoOfTasks__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>NES_Account__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>NES_StatusFromHandledToOpen</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL(PRIORVALUE(NES_Status__c), &apos;Handled&apos;) &amp;&amp; ISPICKVAL(NES_Status__c, &apos;Open&apos;)</errorConditionFormula>
+        <errorMessage>Once Status has been changed to  &quot;Handled&quot; is cannot be changed back to &quot;Open&quot;.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

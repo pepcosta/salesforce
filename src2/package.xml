@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Action_Item_Parameter__c</members>
+				<members>Case</members>
+				<members>Account</members>
+				<members>Contact</members>
+				<members>Case_Event_Matrix__c</members>
+				<members>Task</members>
+				<members>Action_Item_Rule__c</members>
+				<members>Action_Item__c</members>
+				<members>Attribute_Definition__c</members>
+				<members>Attribute_Domain__c</members>
+				<members>Case_Attribute__c</members>
+				<members>Case_Reason__c</members>
+				<members>Case_Action_Item__c</members>
+				<members>LST_OF_VAL__c</members>
+				<members>Knowledge__kav</members>
+				<members>Account</members>
+				<members>Follow_Up__c</members>
+				<members>Import_Batch__c</members>
+				<members>Activity</members>
+				<members>NES_StagingTableAssetSettings__c</members>
+				<members>NES_StagingTableNotableEvent__c</members>
+				<members>NES_StagingTableEventLog__c</members>
+				<members>Action_Item_Parameter__c</members>	
+				<members>ContractLineItem</members>				
+				<members>ContractLineItemMirror__c</members>				
+				<members>*</members>              
+        <name>CustomObject</name>
+    </types>
+	<types>
+        <members>CaseStatus</members>
+				<members>AccountType</members>        
+				<members>CaseOrigin</members>        
+        <name>StandardValueSet</name>
+    </types>
+	<types>
+		<members>*</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ApexTrigger</name>
+	</types>
+	<!--types> <members>*</members> <name>AuthProvider</name> </types> <types> 
+		<members>*</members> <name>AutoResponseRules</name> </types -->
+	<!--types>
+		<members>*</members>
+		<name>BrandingSet</name>
+	</types-->
+	<!--types> <members>*</members> <name>BusinessProcess</name> </types -->
+	<!--types>
+		<members>BreezeSfdcLab</members>
+		<members>BreezeSFDCPt</members>
+		<name>CallCenter</name>
+	</types-->
+	<!--types> <members>*</members> <name>CampaignInfluenceModel</name> </types> 
+		<types> <members>*</members> <name>CaseSubjectParticle</name> </types> <types> 
+		<members>*</members> <name>Certificate</name> </types> <types> <members>*</members> 
+		<name>ChatterExtension</name> </types> <types> <members>*</members> <name>CleanDataService</name> 
+		</types -->
+	<!--types>
+		<members>*</members>
+		<name>Community</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CommunityTemplateDefinition</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CommunityThemeDefinition</name>
+	</types-->
+	<!--types> <members>*</members> <name>ConnectedApp</name> </types -->
+	<!--types>
+		<members>banner1</members>
+		<members>Banner_capsules_B2B1</members>
+		<members>Bottom_banner</members>
+		<members>Group_Banner1</members>
+		<members>My_Contracts</members>
+		<members>nespresso_tile_log_case1</members>
+		<members>nespresso_tile_machines1</members>
+		<members>nespresso_tile_orders1</members>
+		<members>nespresso_tile_telemetry2</members>
+		<members>photo</members>
+		<members>Tile_My_Clients</members>
+		<members>Tile_My_Clients1</members>
+		<members>Tile_My_Clients2</members>
+		<members>Tile_My_Clients_Small</members>
+		<members>Tile_My_Clients_Small1</members>
+		<members>Untitled</members>
+		<members>Salesforce_Theme_Logo11</members>
+		<members>Salesforce_Theme_Logo12</members>
+		<members>photo1</members>
+		<name>ContentAsset</name>
+	</types-->
+	<!--types> <members>*</members> <name>CorsWhitelistOrigin</name> </types> 
+		<types> <members>*</members> <name>CspTrustedSite</name> </types -->
+	<types>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetScreen_P1</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetScreen_P2</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetScreen_P3</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetScreen_P4</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetSearch_P1</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetSearch_P2</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetSearch_P3</members>
+		<members>Action_allowed_by_Profile.UpdateModemProfileInAssetSearch_P4</members>
+		<members>Sky_GlobalVariable.Avg_days_range</members>
+		<members>Sky_GlobalVariable.Telemetry_LegacyIds</members>
+		<members>Sky_GlobalVariable.Limit_Of_Days_Before_Delete</members>
+		<members>StopContractActions.No_Renewal</members>
+		<members>StopContractActions.Picklist_Chassis</members>
+		<members>StopContractActions.Picklist_ModemModule</members>
+		<members>StopContractActions.Picklist_NewContract</members>
+		<members>StopContractActions.Picklist_Telemetry</members>
+		<members>StopContractActions.Renewal</members>
+		<members>StopContractActions.No_Renewal</members>
+		<members>NES_Product_Adjustment.Espresso_Leggero</members>
+		<members>NES_Product_Adjustment.Take_Away_9oz_lid_packs_of_50</members>
+		<members>NES_Product_Adjustment.Long_stirrers_packs_of_100</members>
+		<members>NES_Product_Adjustment.Lungo_Forte</members>
+		<members>NES_Product_Adjustment.Ristretto_Origin_India</members>
+		<members>NES_Product_Adjustment.Lungo_Origin_Guatemala</members>
+		<members>NES_Product_Adjustment.Ristretto</members>
+		<members>NES_Product_Adjustment.Milk_Chocolate_Squares2</members>
+		<members>NES_Product_Adjustment.Espresso_Forte</members>
+		<members>NES_Product_Adjustment.Espresso_Origin_Brazil</members>
+		<members>NES_Product_Adjustment.Take_Away_12oz_lid_packs_of_50</members>
+		<members>NES_Product_Adjustment.Dark_Chocolate_Squares</members>
+		<members>NES_Product_Adjustment.Paper_Cups_100_ml_packs_of_552</members>
+		<members>NES_Product_Adjustment.Take_Away_7oz_lid_packs_of_50</members>
+		<members>NES_Product_Adjustment.Lungo_Leggero</members>
+		<members>NES_Product_Adjustment.On_The_Go_Paper_Cup_12oz_360ml_35p</members>
+		<members>NES_Product_Adjustment.Espresso_Caramel</members>
+		<members>NES_Product_Adjustment.Ristretto_Intenso</members>
+		<members>NES_Product_Adjustment.Paper_Cups_175ml_packs_of_55</members>
+		<members>NES_Product_Adjustment.Sucre</members>
+		<members>NES_Product_Adjustment.Dark_Chocolate_Squares2</members>
+		<members>NES_Product_Adjustment.Stirrers_packs_of_100</members>
+		<members>NES_Product_Adjustment.Cailler_Le_Chocolat</members>
+		<members>NES_Product_Adjustment.Unrecognized</members>
+		<members>NES_Product_Adjustment.Sucre_Roux_Bulk</members>
+		<members>NES_Product_Adjustment.Paper_Cups_250_ml_packs_of_50</members>
+		<members>NES_Product_Adjustment.Espresso_Vanilla</members>
+		<members>NES_Product_Adjustment.Coffee_Cream_200_units_2_4_Kg</members>
+		<members>NES_Product_Adjustment.Take_Away_4oz_cup_packs_of_50</members>
+		<members>NES_Product_Adjustment.Lungo_Decaffeinato</members>
+		<members>NES_Product_Adjustment.On_The_Go_Paper_Cup_8oz_240ml_30p</members>
+		<members>NES_Product_Adjustment.On_The_Go_Paper_Cup_12oz_480ml_35p</members>
+		<members>NES_Product_Adjustment.Paper_Cups_250_ml_packs_of_502</members>
+		<members>NES_Product_Adjustment.On_The_Go_Paper_Cup_4oz_110ml_50p</members>
+		<members>NES_Product_Adjustment.Take_Away_9oz_cup_packs_of_25</members>
+		<members>NES_Product_Adjustment.Sucre_Bulk</members>
+		<members>NES_Product_Adjustment.Take_Away_7oz_cup_packs_of_50</members>
+		<members>NES_Product_Adjustment.Espresso_Decaffeinato</members>
+		<members>NES_Product_Adjustment.Paper_Cups_100_ml_packs_of_55</members>
+		<members>NES_Product_Adjustment.Sucre_Roux</members>
+		<members>NES_Product_Adjustment.Creamer</members>
+		<members>NES_Product_Adjustment.Ceylan_Kenilworth_Noir</members>
+		<members>NES_Product_Adjustment.Take_Away_4oz_lid_packs_of_50</members>
+		<members>NES_Product_Adjustment.Milk_Chocolate_Squares</members>
+		<members>NES_Product_Adjustment.White_Sugar</members>
+		<members>NES_Product_Adjustment.Paper_Cups_175ml_packs_of_552</members>
+		<members>NES_Product_Adjustment.Take_Away_12oz_cup_packs_of_50</members>
+		<members>NES_Product_Adjustment.Earl_Grey_Fleurs_Bleues</members>	
+		<name>CustomMetadata</name>
+	</types>
+	<types>	
+        <members>Asset_Settings_To_IoT</members>
+        <members>Case_Update_Procedure_Objects_Flow-77</members>
+        <members>Contract_Line_Item_PB_Skyline_to_SF</members>
+        <members>Notable_Event_PB_Skyline_to_SF</members>
+        <members>Asset_Setting_set_Null_On_Requested_Field</members>
+        <members>Asset_Status_To_IoT</members>
+        <members>Asset_Main_Process</members>
+        <members>Contract_Line_Item_To_IoT</members>
+      	<members>Case_Process-28</members>
+        <members>Case_Main_Procedure_UI_Flow-110</members>
+        <members>CaseEventAssignement-130</members>
+      	<members>Assign_Record_Type_Id_To_Action_Item-15</members>
+      	<members>completeMilestoneFlow-35</members>
+      	<members>CaseEventMilestone-82</members>
+      	<members>SplitFlow-5</members>
+      	<members>SetWaitingForCustomerDateOnCase-17</members>
+	    <name>Flow</name>
+	</types>	
+	<!--types>
+		<members>Action_Item_Rule__c.Assignment_Change_Status_Priority</members>
+		<members>Action_Item_Rule__c.Change_Procedure</members>
+		<members>Action_Item_Rule__c.Execute_Activity</members>
+		<members>Action_Item_Rule__c.Step</members>
+		<name>RecordType</name>
+	</types-->
+	<types>
+		<members>Case_Main_Procedure_UI_Flow</members>
+		<members>List_Of_Value_Main_Process</members>
+		<members>Email_Opt_Out_Update</members>
+		<name>FlowDefinition</name>
+	</types>
+	<types>	
+		<members>Type</members>	
+		<members>NES_Group</members>
+		<members>Case_Origin_Value_Set</members>
+		<members>PicklistValues</members>
+		<name>GlobalValueSet</name>
+	</types>
+	<!--types> <members>*</members> <name>GlobalValueSetTranslation</name> </types> 
+		<types> <members>*</members> <name>Group</name> </types> <types> <members>*</members> 
+		<name>HomePageComponent</name> </types> <types> <members>*</members> <name>HomePageLayou</name> 
+		</types> <types> <members>*</members> <name>InstalledPackage</name> </types> 
+		<types> <members>*</members> <name>KeywordList</name> </types -->
+	<!--types> <members>*</members> <name>Letterhead</name> </types> <types> 
+		<members>*</members> <name>LiveChatAgentConfig</name> </types> <types> <members>*</members> 
+		<name>LiveChatButton</name> </types> <types> <members>*</members> <name>LiveChatDeployment</name> 
+		</types> <types> <members>*</members> <name>LiveChatSensitiveDataRule</name> 
+		</types -->
+	<!--types>
+		<members>*</members>
+		<name>ManagedTopics</name>
+	</types-->
+	<!--types> <members>*</members> <name>MatchingRules</name> </types> <types> 
+		<members>*</members> <name>MilestoneType</name> </types> <types> <members>*</members> 
+		<name>ModerationRule</name> </types -->
+	<!--types>
+		<members>GetContractDetailsREST</members>
+		<members>GetCustomerContractListREST</members>
+		<members>GetCustomerFollowupListREST</members>
+		<members>GetCustomerLastOrdersREST</members>
+		<members>GetCustomerOrdersListREST</members>
+		<members>GetFollowupDetailsREST</members>
+		<members>GetOrderDetailsREST</members>
+		<members>GetStandingOrderDetailsREST</members>
+		<members>PatchContractInterventionREST</members>
+		<members>PostRegistryParamsREST</members>
+		<name>NamedCredential</name>
+	</types>
+	<types>
+		<members>Skyline</members>
+		<name>Network</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>NetworkBranding</name>
+	</types>
+	<types>
+		<members>Nespresso_Case_Statuses_Path</members>
+		<name>PathAssistant</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<members>Agent%2FCC</members>
+		<members>Agent Admin%2FCC</members>
+		<members>API Only</members>
+		<members>Client%2FCC</members>
+		<members>HQ After Sales%2FSkyline</members>
+		<members>HQ Connectivity Manager%2FSkyline</members>
+		<members>HQ Telemetry Admin%2FSkyline</members>
+		<members>Market After Sales%2FSkyline</members>
+		<members>Market Connectivity Manager%2FSkyline</members>
+		<members>Market Telemetry Admin%2FSkyline</members>
+		<members>Nespresso Market Business Admin</members>
+		<members>Nespresso Market Coffee Specialist</members>
+		<members>Skyline Administrator</members>
+		<members>Technician%2FCC</members>
+		<name>Profile</name>
+	</types-->
+	<!--types>
+		<members>Marketing</members>
+		<members>NES_CRC_Back_Office</members>
+		<members>NES_CRC_Front_Office</members>
+		<members>NES_CRC_Manager_SC</members>
+		<members>Operations</members>
+		<members>Sales_Manager_KAM</members>
+		<members>Sales_rep_CC</members>
+		<name>PermissionSet</name>
+	</types>
+	<types> <members>*</members> <name>PlatformCachePartition</name> </types> 
+		<types> <members>*</members> <name>Portal</name> </types> <types> <members>*</members> 
+		<name>PostTemplate</name> </types> <types> <members>*</members> <name>ProfilePasswordPolicy</name> 
+		</types> <types> <members>*</members> <name>Queue</name> </types>
+	<types>
+		<members>Asset.Remove_Asset</members>
+		<members>Asset.Change_Opt_in</members>
+		<members>Account.Nespresso_Engage_Third_Party_Account</members>
+		<members>Case.Nespresso_EngagePlus_Case_Quick_Action</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>ContractLineItemDataPipe_IoT</members>
+		<members>TelefonicaGEM_API</members>
+		<name>RemoteSiteSetting</name>
+	</types-->
+	<types>
+		<members>NES_AssetStatus__c</members>
+		<members>NES_AccountTelemetryPreferences__c</members>
+		<members>Case</members>
+		<name>Workflow</name>
+	</types>
+    <version>44.0</version>
+</Package>

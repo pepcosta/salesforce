@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_First_Time_Connected__c</fullName>
+        <description>This field informs us when the machine was connected to current Account</description>
+        <externalId>false</externalId>
+        <label>Account First Time Connected</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>AgentId__c</fullName>
+        <description>AgentId received from Asset</description>
+        <externalId>false</externalId>
+        <label>AgentId</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_Chassis_S_N__c</fullName>
+        <externalId>false</externalId>
+        <formula>NES_Asset__r.SerialNumber</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Asset Chassis S/N</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_FW_Version__c</fullName>
+        <description>Chasis FW</description>
+        <externalId>false</externalId>
+        <label>Asset FW Version</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_Reviewed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Asset Reviewed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Current_Time_Blocked__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Time Blocked (in minutes)</label>
+        <summarizedField>Blocked_Log__c.BlockedDuration__c</summarizedField>
+        <summaryFilterItems>
+            <field>Blocked_Log__c.Blocked_Summary__c</field>
+            <operation>notEqual</operation>
+            <value>Daily, Weekly, Monthly</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Blocked_Log__c.AssetStatus__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Default_Modem_Profile_Customized_by_User__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>indicates if user has changed some Default Modem Profile settings</description>
+        <externalId>false</externalId>
+        <label>Default Modem Profile Customized by User</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Default_Modem_Profile__c</fullName>
+        <description>Field to store what Default Modem Profile has set up for the asset</description>
+        <externalId>false</externalId>
+        <label>Default Modem Profile</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Failure_Message__c</fullName>
+        <externalId>false</externalId>
+        <label>Failure Message</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Failure_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Contract conflict</fullName>
+                    <default>false</default>
+                    <label>Active Telemetry contract service not found</label>
+                </value>
+                <value>
+                    <fullName>Asset without market or agent assigned</fullName>
+                    <default>false</default>
+                    <label>Asset without market or agent assigned</label>
+                </value>
+                <value>
+                    <fullName>S/N error</fullName>
+                    <default>false</default>
+                    <label>S/N error</label>
+                </value>
+                <value>
+                    <fullName>S/N error and Unkown SKU</fullName>
+                    <default>false</default>
+                    <label>S/N error and Unkown SKU</label>
+                </value>
+                <value>
+                    <fullName>Sales Org not matched with Agent information</fullName>
+                    <default>false</default>
+                    <label>Sales Org not matched with Agent information</label>
+                </value>
+                <value>
+                    <fullName>Sales Org not matched with Nessoft</fullName>
+                    <default>false</default>
+                    <label>Sales Org not matched with Nessoft</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Market/Agent Conflict</controllingFieldValue>
+                <valueName>Sales Org not matched with Agent information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Market/Agent Conflict</controllingFieldValue>
+                <valueName>Sales Org not matched with Nessoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Asset</controllingFieldValue>
+                <valueName>Contract conflict</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Asset</controllingFieldValue>
+                <valueName>Asset without market or agent assigned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Asset</controllingFieldValue>
+                <valueName>S/N error</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Asset</controllingFieldValue>
+                <valueName>S/N error and Unkown SKU</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Failure_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Failure Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Market/Agent Conflict</fullName>
+                    <default>false</default>
+                    <label>Market/Agent Conflict</label>
+                </value>
+                <value>
+                    <fullName>Orphan Asset</fullName>
+                    <default>false</default>
+                    <label>Orphan Asset</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>First_Down__c</fullName>
+        <externalId>false</externalId>
+        <label>First Down</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Halted__c</fullName>
+        <externalId>false</externalId>
+        <label>First Halted</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Time_Connected__c</fullName>
+        <description>This field informs us the first time this asset was connected to Service Cloud</description>
+        <externalId>false</externalId>
+        <label>First Time Connected</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Warning__c</fullName>
+        <externalId>false</externalId>
+        <label>First Warning</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Historical_Time_Blocked__c</fullName>
+        <externalId>false</externalId>
+        <label>Historical Time Blocked (in minutes)</label>
+        <summarizedField>Blocked_Log__c.BlockedDuration__c</summarizedField>
+        <summaryForeignKey>Blocked_Log__c.AssetStatus__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>LimitDaysWithoutConnectionEmailSend__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Limit days without connection email send</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LimitOfDaysWithoutConnection__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Duration without connection limit before an alarm is sent to the connectivity manager</inlineHelpText>
+        <label>Limit of days without connection</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_Asset__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset Chasis</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Asset Statuses</relationshipLabel>
+        <relationshipName>Asset_Statuses</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>NES_BrewingUnitJam__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Brewing Unit Jam</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_CoffeePumpOverheating__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Coffee Pump Overheating</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_DescalingRequestTriggeredByVolume__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Descaling Request Triggered By Volume</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_DirectWaterConnectionIssue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Direct Water Connection Issue</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_DripTrayFull__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Drip Tray Full</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_FilterChangeRequestTriggeredByVolume__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Filter change request by Volume</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_ICCID__c</fullName>
+        <externalId>false</externalId>
+        <label>ICCID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_IMSI__c</fullName>
+        <externalId>false</externalId>
+        <label>IMSI</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_LastCommunicationTimestamp__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Communication Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NES_MachineGeographicalPosition__c</fullName>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Asset geographical position</label>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>NES_PadBinFull__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pad Bin Full</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_RunOutOfWater__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Run Out Of Water</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_SIMActivationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>SIM Activation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NES_SIMState__c</fullName>
+        <externalId>false</externalId>
+        <label>SIM State</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>INACTIVE_NEW</fullName>
+                    <default>false</default>
+                    <label>Inactive New</label>
+                </value>
+                <value>
+                    <fullName>TEST</fullName>
+                    <default>false</default>
+                    <label>Test</label>
+                </value>
+                <value>
+                    <fullName>ACTIVATION_PENDANT</fullName>
+                    <default>false</default>
+                    <label>Activation Pendant</label>
+                </value>
+                <value>
+                    <fullName>ACTIVATION_READY</fullName>
+                    <default>false</default>
+                    <label>Activation Ready</label>
+                </value>
+                <value>
+                    <fullName>DEACTIVATED</fullName>
+                    <default>false</default>
+                    <label>Deactivated</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>SUSPENDED</fullName>
+                    <default>false</default>
+                    <label>Suspended</label>
+                </value>
+                <value>
+                    <fullName>RETIRED</fullName>
+                    <default>false</default>
+                    <label>Retired</label>
+                </value>
+                <value>
+                    <fullName>RESTORE</fullName>
+                    <default>false</default>
+                    <label>Restore</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_ServiceContract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Contract</label>
+        <referenceTo>ContractLineItem</referenceTo>
+        <relationshipName>Asset_Statuses</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_WaterTankEmpty__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Water Tank Empty</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_WaterTankMissing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Water Tank Missing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Operational_Status_Data_Change__c</fullName>
+        <description>Data of the last change of operational Status</description>
+        <externalId>false</externalId>
+        <label>Operational Status Data Change</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Asset Status</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>NES_Asset__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Asset Statuses</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

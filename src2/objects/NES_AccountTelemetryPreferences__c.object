@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Account_Telemetry_Preferences_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Rename API from &quot;NES_AccountTelemetryPreferences&quot; to &quot;NES_AccountTelemetryPreferences&quot; - then delete this description</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AutoOrder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check this field to avaiable it in auto-order processes</description>
+        <externalId>false</externalId>
+        <label>Auto-Order</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AvgRound__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISBLANK(NES_AverageConsumption__c),ISNULL(NES_AverageConsumption__c)), 
+0, 
+ROUND(NES_AverageConsumption__c,2))</formula>
+        <label>Average daily usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DaysOfStock__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISBLANK(NES_AverageConsumption__c),ISNULL(NES_AverageConsumption__c)), 
+			0, 
+			NES_Count__c / NES_AverageConsumption__c)</formula>
+        <label>Days of Stock</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Factor__c</fullName>
+        <externalId>false</externalId>
+        <label>Factor</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FirstUpdated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check when save Actual Stock for the first time. Used in Workflow process that save the Initial Stock.</description>
+        <externalId>false</externalId>
+        <label>First Updated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>InitialStock__c</fullName>
+        <externalId>false</externalId>
+        <label>Initial Stock</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_Account_Telemetry__c</fullName>
+        <externalId>false</externalId>
+        <label>Telemetry Account</label>
+        <referenceTo>NES_AccountTelemetry__c</referenceTo>
+        <relationshipLabel>Telemetry Accounts Preferences</relationshipLabel>
+        <relationshipName>NES_AccountTelemetryPreferences</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>NES_AverageConsumption__c</fullName>
+        <externalId>false</externalId>
+        <label>Average daily usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Stock</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_CutOff__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Point</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EstimatedConsumption__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated cycle usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EstimatedReplenishment__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity needed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_Key__c</fullName>
+        <externalId>false</externalId>
+        <label>Key</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>NES_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Spoons</fullName>
+                    <default>false</default>
+                    <label>Spoons</label>
+                </value>
+                <value>
+                    <fullName>Milks</fullName>
+                    <default>false</default>
+                    <label>Milks</label>
+                </value>
+                <value>
+                    <fullName>Chocolate</fullName>
+                    <default>false</default>
+                    <label>Chocolate</label>
+                </value>
+                <value>
+                    <fullName>Ristretto</fullName>
+                    <default>false</default>
+                    <label>Ristretto</label>
+                </value>
+                <value>
+                    <fullName>Ristretto Intenso</fullName>
+                    <default>false</default>
+                    <label>Ristretto Intenso</label>
+                </value>
+                <value>
+                    <fullName>Ristretto Origin India</fullName>
+                    <default>false</default>
+                    <label>Ristretto Origin India</label>
+                </value>
+                <value>
+                    <fullName>Espresso Leggero</fullName>
+                    <default>false</default>
+                    <label>Espresso Leggero</label>
+                </value>
+                <value>
+                    <fullName>Espresso Forte</fullName>
+                    <default>false</default>
+                    <label>Espresso Forte</label>
+                </value>
+                <value>
+                    <fullName>Espresso Origin Brazil</fullName>
+                    <default>false</default>
+                    <label>Espresso Origin Brazil</label>
+                </value>
+                <value>
+                    <fullName>Lungo Leggero</fullName>
+                    <default>false</default>
+                    <label>Lungo Leggero</label>
+                </value>
+                <value>
+                    <fullName>Lungo Forte</fullName>
+                    <default>false</default>
+                    <label>Lungo Forte</label>
+                </value>
+                <value>
+                    <fullName>Lungo Origin Guatemala</fullName>
+                    <default>false</default>
+                    <label>Lungo Origin Guatemala</label>
+                </value>
+                <value>
+                    <fullName>Espresso Decaffeinato</fullName>
+                    <default>false</default>
+                    <label>Espresso Decaffeinato</label>
+                </value>
+                <value>
+                    <fullName>Lungo Decaffeinato</fullName>
+                    <default>false</default>
+                    <label>Lungo Decaffeinato</label>
+                </value>
+                <value>
+                    <fullName>Espresso Vanilla</fullName>
+                    <default>false</default>
+                    <label>Espresso Vanilla</label>
+                </value>
+                <value>
+                    <fullName>Espresso Caramel</fullName>
+                    <default>false</default>
+                    <label>Espresso Caramel</label>
+                </value>
+                <value>
+                    <fullName>Unrecognized</fullName>
+                    <default>false</default>
+                    <label>Unrecognized</label>
+                </value>
+                <value>
+                    <fullName>Paper Cups</fullName>
+                    <default>false</default>
+                    <label>Paper Cups</label>
+                </value>
+                <value>
+                    <fullName>Stirrers</fullName>
+                    <default>false</default>
+                    <label>Stirrers</label>
+                </value>
+                <value>
+                    <fullName>Long stirrers</fullName>
+                    <default>false</default>
+                    <label>Long stirrers</label>
+                </value>
+                <value>
+                    <fullName>Take Away</fullName>
+                    <default>false</default>
+                    <label>Take Away</label>
+                </value>
+                <value>
+                    <fullName>Autocappuccino</fullName>
+                    <default>false</default>
+                    <label>Autocappuccino</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Ristretto</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Ristretto Intenso</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Ristretto Origin India</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Leggero</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Forte</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Origin Brazil</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Lungo Leggero</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Lungo Forte</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Lungo Origin Guatemala</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Decaffeinato</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Lungo Decaffeinato</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Vanilla</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Espresso Caramel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Capsule</controllingFieldValue>
+                <controllingFieldValue>Safety Stock</controllingFieldValue>
+                <valueName>Unrecognized</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Spoons</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Milks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Chocolate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Paper Cups</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Stirrers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Long stirrers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Take Away</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumables</controllingFieldValue>
+                <valueName>Autocappuccino</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_NoCapsulesToOrder__c</fullName>
+        <externalId>false</externalId>
+        <label>No Capsules To Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_NoOfBoxesToOrder__c</fullName>
+        <externalId>false</externalId>
+        <label>No Of Boxes To Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_PriceBook__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>PriceBook</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipName>NES_AccountTelemetryPreferences</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipName>NES_AccountTelemetryPreferences</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Capsule</fullName>
+                    <default>false</default>
+                    <label>Capsule</label>
+                </value>
+                <value>
+                    <fullName>Consumables</fullName>
+                    <default>false</default>
+                    <label>Consumables</label>
+                </value>
+                <value>
+                    <fullName>Safety Stock</fullName>
+                    <default>false</default>
+                    <label>Safety Stock</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OrderNeeded__c</fullName>
+        <description>Formula field: when actual stock is below order point it will be true. Necesary for calculations.</description>
+        <externalId>false</externalId>
+        <formula>NES_Count__c &lt;  NES_CutOff__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Order needed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OrderPointRound__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISBLANK(NES_CutOff__c),ISNULL(NES_CutOff__c)), 
+0, 
+ROUND(NES_CutOff__c,0))</formula>
+        <label>Order Point</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SafetyStock__c</fullName>
+        <externalId>false</externalId>
+        <label>Safety Stock</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Telemetry Account Preferences</label>
+    <nameField>
+        <displayFormat>PLI-{0000}</displayFormat>
+        <label>Third Telemetry Preferences Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Telemetry Accounts Preferences</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>NES_LCMP_Lock_Preferences_Key_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(NES_Account_Telemetry__c) ||  ISCHANGED(NES_Key__c) || ISCHANGED(NES_Type__c)</errorConditionFormula>
+        <errorMessage>You can update only Count field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NES_Lock_Preferences_Count_Decimal</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF ( OR (ISPICKVAL(NES_Type__c, &apos;Capsule&apos;) , ISPICKVAL(NES_Type__c, &apos;Safety Stock&apos;))
+                    , CONTAINS ( TEXT( NES_Count__c ) , &apos;.&apos; ), FALSE)</errorConditionFormula>
+        <errorDisplayField>NES_Count__c</errorDisplayField>
+        <errorMessage>Decimals aren&apos;t accepted for Capsule and Safety Stock.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

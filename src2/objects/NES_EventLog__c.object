@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Stores all events and consumption retrieved from Telemetry enabled assets</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Id</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Event Logs</relationshipLabel>
+        <relationshipName>Event_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Blocked_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(OR(ISPICKVAL(Operational_Value__c, &apos;Halted&apos;), ISPICKVAL(Operational_Value__c, &apos;Down&apos;)), NOT(ISNULL( Reset_Timestamp__c ))),
+			(Reset_Timestamp__c - NES_EventDate__c)*24*60,
+			0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Blocked Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brew_Hour__c</fullName>
+        <description>Field used for reporting on consumption per hour</description>
+        <externalId>false</externalId>
+        <formula>VALUE( MID( TEXT( NES_EventDate__c + (User_Timezone__c)/24), 12, 2) )</formula>
+        <label>Brew Hour</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bucket_Field_Capsules__c</fullName>
+        <description>Field to Bucket for Joined reports.</description>
+        <externalId>false</externalId>
+        <formula>CASE( NES_CapsuleName__c ,
+&quot;Espresso Decaffeinato&quot;, &quot;Decaffeinato&quot;,
+&quot;Lungo Decaffeinato&quot;, &quot;Decaffeinato&quot;,
+&quot;Espresso Leggero&quot;, &quot;Espresso&quot;,
+&quot;Espresso Forte&quot;, &quot;Espresso&quot;,
+&quot;Espresso Origin Brasil&quot;, &quot;Espresso&quot;,
+&quot;Espresso Vanilla&quot;, &quot;Espresso&quot;,
+&quot;Espresso Caramel&quot;, &quot;Espresso&quot;,
+&quot;Lungo Leggero&quot;, &quot;Lungo&quot;,
+&quot;Lungo Forte&quot;, &quot;Lungo&quot;,
+&quot;Lungo Origin Guatemala&quot;, &quot;Lungo&quot;,
+&quot;Ristretto&quot;, &quot;Ristretto&quot;,
+&quot;Ristretto Intenso&quot;, &quot;Ristretto&quot;,
+&quot;Ristretto Origin India&quot;, &quot;Ristretto&quot;,
+					&quot;Exclusive Selection Nepal Lamjung&quot;, &quot;Exclusive Selection&quot;,
+					&quot;Exclusive Selection Kilimanjaro Peaberry&quot;, &quot;Exclusive Selection&quot;,
+&quot;Unrecognized&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Bucket Field Caps</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CC_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/skyline/s/nes-eventlog/&quot; &amp; Id,Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CC Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Capsule_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Capsule ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consumption_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(NES_Count__c),0,NES_Count__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Consumption Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractLineItemChassisMirror__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Mirror Chassis</label>
+        <referenceTo>ContractLineItemMirror__c</referenceTo>
+        <relationshipLabel>Event Logs</relationshipLabel>
+        <relationshipName>Event_Logs1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractLineItemModuleMirror__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Module Mirror</label>
+        <referenceTo>ContractLineItemMirror__c</referenceTo>
+        <relationshipLabel>Event Logs (Module)</relationshipLabel>
+        <relationshipName>Event_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Line_Item_Module__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Module</label>
+        <referenceTo>ContractLineItem</referenceTo>
+        <relationshipLabel>Event Logs (Contract Line Item Module)</relationshipLabel>
+        <relationshipName>Event_Logs_Module</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DailyAggregated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This event log has been count in a daily aggregate record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This event log has been count in a daily aggregate record</inlineHelpText>
+        <label>DailyAggregated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Event_Time_local__c</fullName>
+        <externalId>false</externalId>
+        <formula>TIMEVALUE(NES_EventDate__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Event Time local</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Extraction_Counter__c</fullName>
+        <externalId>false</externalId>
+        <label>Extraction Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inconsistency__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Is_Current_Account__c = Is_Current_Account_Module__c , True , False)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inconsistency</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IoT_Asset_Serial_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>IoT Asset Serial Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Iot_Message_UUID__c</fullName>
+        <description>ID in AWS of the message from machines</description>
+        <externalId>false</externalId>
+        <label>Iot Message UUID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Current_Account_Module__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Id__r.Id = NES_Asset_Module__r.Account.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Current Account Module</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Current_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Id__r.Id  =   NES_Asset__r.Account.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Current Account Chassis</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Message_Timestamp__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Module_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Module Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Event Logs (Module Account)</relationshipLabel>
+        <relationshipName>Module_Event_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Asset_Module__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Module</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Event Logs (Asset Module)</relationshipLabel>
+        <relationshipName>Event_Logs2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Chassis</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Event Logs</relationshipLabel>
+        <relationshipName>Asset_Chasis_Event_Log</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_BrewingStoppedByConsumer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Brewing Stopped by Consumer</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_CapsuleName__c</fullName>
+        <externalId>false</externalId>
+        <label>Capsule Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>CapsuleName</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>NES_Category</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_ContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Line Item Chassis</label>
+        <referenceTo>ContractLineItem</referenceTo>
+        <relationshipLabel>Event Logs</relationshipLabel>
+        <relationshipName>Event_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Consumption</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_End_Temperature__c</fullName>
+        <description>Brewing event End Temperature</description>
+        <externalId>false</externalId>
+        <label>End Temperature</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EventCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EventDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NES_EventDescription__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EventName__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>EventName</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_EventNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue Number</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_EventSummary__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Summary</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>EventSummary</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_EventUrgency__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Class</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>NES_Event_Severity</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_HotWaterQuantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Brewing End Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_IoT_Market__c</fullName>
+        <description>Iot Header Message Market Field</description>
+        <externalId>false</externalId>
+        <label>IoT Market</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_IoT_Message_Type__c</fullName>
+        <description>IoT Message Block Type (CNS, EV, TLM ..)</description>
+        <externalId>false</externalId>
+        <label>IoT Message Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_IoT_Module_Serial_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>IoT Module Serial Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_IsSummary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Summary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NES_JsonMessage__c</fullName>
+        <externalId>false</externalId>
+        <label>Json Message</label>
+        <length>20480</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NES_NotableEvent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Notable Event</label>
+        <referenceTo>NES_NotableEvent__c</referenceTo>
+        <relationshipLabel>Event Logs</relationshipLabel>
+        <relationshipName>Event_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NES_RecipeTypeRecipeID__c</fullName>
+        <externalId>false</externalId>
+        <label>Recipe Type / Recipe ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_Recipe__c</fullName>
+        <externalId>false</externalId>
+        <label>Recipe</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Recipe</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NES_StartTemperature__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Brewing event Start Temperature</inlineHelpText>
+        <label>Start Temperature</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_TopUpCoffeeVolume__c</fullName>
+        <externalId>false</externalId>
+        <label>Top-up Coffee Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NES_TotalWaterQuantityThroughCapsule__c</fullName>
+        <externalId>false</externalId>
+        <label>Brewing Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Timestamp__c</fullName>
+        <externalId>false</externalId>
+        <label>New Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>New_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>New Value</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Value</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operational_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Operational Value</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Warning</fullName>
+                    <default>false</default>
+                    <label>Warning</label>
+                </value>
+                <value>
+                    <fullName>Halted</fullName>
+                    <default>false</default>
+                    <label>Halted</label>
+                </value>
+                <value>
+                    <fullName>Down</fullName>
+                    <default>false</default>
+                    <label>Down</label>
+                </value>
+                <value>
+                    <fullName>Ok</fullName>
+                    <default>false</default>
+                    <label>Ok</label>
+                </value>
+                <value>
+                    <fullName>Reset</fullName>
+                    <default>false</default>
+                    <label>Reset</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Power_of_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Event Log</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reset_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>Reset Event</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reset_Timestamp__c</fullName>
+        <externalId>false</externalId>
+        <label>Reset Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Setting_Code__c</fullName>
+        <description>Setting Code updated by machine on Configuration Change Events</description>
+        <externalId>false</externalId>
+        <label>Setting Code</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Setting_Name__c</fullName>
+        <description>Setting updated by Machine on Configuration Change Event</description>
+        <externalId>false</externalId>
+        <label>Setting Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalCaps12months__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Caps 12 months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalMilk__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Milk</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalNespressoCaps12months__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Nespresso Caps 12 months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalQuantityOfWaterForBrews12Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Water Brews 12 months (L)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalQuantityofWaterforBrews12months__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Water 12 months (L)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalQuantityofWateronlyBrews__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Water Brews (L)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalWaterLitres__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Water (L)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueKey__c</fullName>
+        <externalId>true</externalId>
+        <label>UniqueKey</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnrecognizedCaps__c</fullName>
+        <externalId>false</externalId>
+        <label>Unrecognized Caps</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Timezone__c</fullName>
+        <externalId>false</externalId>
+        <formula>((DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 00:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 01:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 02:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 03:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 04:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 05:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 06:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 07:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 08:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 09:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 10:00:00&quot;)) - TODAY()) +
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 11:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 12:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 13:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 14:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 15:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 16:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 17:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 18:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 19:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 20:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 21:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 22:00:00&quot;)) - TODAY()) + 
+(DATEVALUE(DATETIMEVALUE(TEXT(TODAY())+&quot; 23:00:00&quot;)) - TODAY()))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Timezone</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Event Log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>CREATED_DATE</columns>
+        <columns>IoT_Asset_Serial_Number__c</columns>
+        <columns>Iot_Message_UUID__c</columns>
+        <columns>NES_Count__c</columns>
+        <columns>NAME</columns>
+        <columns>NES_CapsuleName__c</columns>
+        <columns>NES_EventCode__c</columns>
+        <columns>NES_EventDescription__c</columns>
+        <columns>NES_EventName__c</columns>
+        <columns>NES_IsSummary__c</columns>
+        <columns>NES_Recipe__c</columns>
+        <columns>NES_HotWaterQuantity__c</columns>
+        <columns>UniqueKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>UniqueKeyView</fullName>
+        <columns>NAME</columns>
+        <columns>UniqueKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>UniqueKeyView</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>myview</fullName>
+        <columns>CREATED_DATE</columns>
+        <columns>IoT_Asset_Serial_Number__c</columns>
+        <columns>Iot_Message_UUID__c</columns>
+        <columns>NES_Count__c</columns>
+        <columns>NAME</columns>
+        <columns>NES_CapsuleName__c</columns>
+        <columns>NES_EventCode__c</columns>
+        <columns>NES_EventDescription__c</columns>
+        <columns>NES_EventName__c</columns>
+        <columns>NES_IsSummary__c</columns>
+        <columns>NES_Recipe__c</columns>
+        <columns>NES_HotWaterQuantity__c</columns>
+        <columns>UniqueKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>IoT_Asset_Serial_Number__c</field>
+            <operation>equals</operation>
+            <value>TESTX231XXXXXX1NXXM</value>
+        </filters>
+        <label>my view</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>LOG-{0000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Event Logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
