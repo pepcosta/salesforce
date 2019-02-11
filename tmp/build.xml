@@ -13,7 +13,7 @@
 
     <taskdef resource="com/salesforce/antlib.xml" classPath="../ant-salesforce.jar" uri="antlib:com.salesforce"/>
 
-    <target name="deployCodeWithTest" depends="proxy">
+    <target name="deployCodeWithTest">
       <sf:deploy 
             username="${target.username}" 
             password="${target.password}" 
@@ -25,7 +25,7 @@
             rollbackOnError="true"/>
     </target>
 	
-	<target name="deployCodeCheckOnlyWithTest" depends="proxy">
+	<target name="deployCodeCheckOnlyWithTest">
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
 				 serverurl="${target.serverurl}" 
@@ -36,7 +36,7 @@
 				 checkOnly="true"/>
 	</target>
   
-    <target name="deployCodeWithLocalTest" depends="proxy">
+    <target name="deployCodeWithLocalTest">
       <sf:deploy 
             username="${target.username}" 
             password="${target.password}" 
@@ -48,7 +48,7 @@
             rollbackOnError="true"/>
     </target>
 	
-	<target name="deployCodeCheckOnlyWithLocalTest" depends="proxy">
+	<target name="deployCodeCheckOnlyWithLocalTest">
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
 				 serverurl="${target.serverurl}" 
@@ -59,7 +59,7 @@
 				 checkOnly="true"/>
 	</target>
   
-  	<target name="deployCodeCheckOnlyWithoutTest" depends="proxy">
+  	<target name="deployCodeCheckOnlyWithoutTest">
 	<echo> ../ant-salesforce.jar </echo>
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
@@ -71,7 +71,7 @@
 				 checkOnly="true"/>
 	</target>
   
-    <target name="quickDeploy" depends="proxy">
+    <target name="quickDeploy">
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
 				 serverurl="${target.serverurl}" 
@@ -82,7 +82,7 @@
 				 rollbackOnError="true"/>
 	</target>
   
-  	<target name="deployCodeWithoutTest" depends="proxy">
+  	<target name="deployCodeWithoutTest">
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
 				 serverurl="${target.serverurl}" 
@@ -90,12 +90,6 @@
       			 maxPoll="50" 
       			 pollWaitMillis="20000"
       			 deployRoot="../src" />
-	</target>
-	
-	<target name="proxy">
-		<property name="proxy.host" value="hqchrancher01.nespresso.com" />
-		<property name="proxy.port" value="3128" />
-		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
 	</target>
 
 </project>
