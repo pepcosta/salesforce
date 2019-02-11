@@ -14,7 +14,6 @@
     <taskdef resource="com/salesforce/antlib.xml" classPath="${basedir}/ant-salesforce.jar" uri="antlib:com.salesforce"/>
 
     <target name="deployCodeWithTest" depends="proxy">
-	<echo> ${basedir}/ant-salesforce.jar </echo>
       <sf:deploy 
             username="${target.username}" 
             password="${target.password}" 
@@ -61,6 +60,7 @@
 	</target>
   
   	<target name="deployCodeCheckOnlyWithoutTest" depends="proxy">
+	<echo> ${basedir}/ant-salesforce.jar </echo>
       <sf:deploy username="${target.username}"
 				 password="${target.password}"
 				 serverurl="${target.serverurl}" 
