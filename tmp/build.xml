@@ -21,7 +21,7 @@
       		testLevel="RunAllTestsInOrg"
       		maxPoll="50" 
       		pollWaitMillis="20000"
-      		deployRoot="src" 
+      		deployRoot="../src" 
             rollbackOnError="true"/>
     </target>
 	
@@ -32,7 +32,7 @@
                  testLevel="RunAllTestsInOrg"
       			 maxPoll="50"
       			 pollWaitMillis="20000"
-      			 deployRoot="src" 
+      			 deployRoot="../src" 
 				 checkOnly="true"/>
 	</target>
   
@@ -44,7 +44,7 @@
       		testLevel="RunLocalTests"
       		maxPoll="50" 
       		pollWaitMillis="20000"
-      		deployRoot="src" 
+      		deployRoot="../src" 
             rollbackOnError="true"/>
     </target>
 	
@@ -55,7 +55,7 @@
                  testLevel="RunLocalTests"
       			 maxPoll="50"
       			 pollWaitMillis="20000"
-      			 deployRoot="src" 
+      			 deployRoot="../src" 
 				 checkOnly="true"/>
 	</target>
   
@@ -67,7 +67,7 @@
                  testLevel="NoTestRun"
       			 maxPoll="50"
       			 pollWaitMillis="20000"
-      			 deployRoot="src" 
+      			 deployRoot="../src" 
 				 checkOnly="true"/>
 	</target>
   
@@ -78,7 +78,7 @@
                  testLevel="NoTestRun"
       			 maxPoll="50"
       			 pollWaitMillis="20000"
-      			 deployRoot="src"
+      			 deployRoot="../src"
 				 rollbackOnError="true"/>
 	</target>
   
@@ -89,7 +89,7 @@
                  testLevel="NoTestRun"
       			 maxPoll="50" 
       			 pollWaitMillis="20000"
-      			 deployRoot="src" />
+      			 deployRoot="../src" />
 	</target>
 	
 	<target name="proxy">
