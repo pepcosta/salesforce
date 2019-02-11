@@ -11,7 +11,7 @@
 
     <condition property="salesforce.sessionId" value=""> <not> <isset property="salesforce.sessionId"/> </not> </condition>   
 
-    <taskdef resource="com/salesforce/antlib.xml" classPath="ant-salesforce.jar" uri="antlib:com.salesforce"/>
+    <taskdef resource="com/salesforce/antlib.xml" classPath="${basedir}/ant-salesforce.jar" uri="antlib:com.salesforce"/>
 
     <target name="deployCodeWithTest" depends="proxy">
       <sf:deploy 
