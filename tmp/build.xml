@@ -1,0 +1,125 @@
+<project name="Salesforce Deployment" default="deployCodeCheckOnlyWithoutTest" basedir="." xmlns:sf="antlib:com.salesforce">
+    <!-- Before the metadata can be deployed the target environment needs to be prepared to receive the metadata -->
+    <!-- Process flows cannot be deployed to the target unless the process flows are inactive and all versions are deleted -->
+    <!-- Uses: ant-contrib-1.0b3.jar -->  
+    <!-- Uses: ant-salesforce.jar --> 
+    <!-- Uses: build.properties --> 
+
+    <!-- Import the build files that are needed for deployment -->
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+    <condition property="salesforce.sessionId" value=""> <not> <isset property="salesforce.sessionId"/> </not> </condition>   
+
+  <taskdef resource="com/salesforce/antlib.xml" classPath="../ant-salesforce.jar" uri="antlib:com.salesforce"/>
+
+    <target name="deployCodeWithTest">
+      <sf:deploy 
+            username="${target.username}" 
+            password="${target.password}" 
+            serverurl="${target.serverurl}" 
+      		testLevel="RunAllTestsInOrg"
+      		maxPoll="50" 
+      		pollWaitMillis="20000"
+      		deployRoot="src" 
+            rollbackOnError="true"/>
+    </target>
+	
+	<target name="deployCodeCheckOnlyWithTest">
+      <sf:deploy username="${target.username}"
+				 password="${target.password}"
+				 serverurl="${target.serverurl}" 
+                 testLevel="RunAllTestsInOrg"
+      			 maxPoll="50"
+      			 pollWaitMillis="20000"
+      			 deployRoot="src" 
+				 checkOnly="true"/>
+	</target>
+  
+    <target name="deployCodeWithLocalTest">
+      <sf:deploy 
+            username="${target.username}" 
+            password="${target.password}" 
+            serverurl="${target.serverurl}" 
+      		testLevel="RunLocalTests"
+      		maxPoll="50" 
+      		pollWaitMillis="20000"
+      		deployRoot="src" 
+            rollbackOnError="true"/>
+    </target>
+	
+	<target name="deployCodeCheckOnlyWithLocalTest">
+      <sf:deploy username="${target.username}"
+				 password="${target.password}"
+				 serverurl="${target.serverurl}" 
+                 testLevel="RunLocalTests"
+      			 maxPoll="50"
+      			 pollWaitMillis="20000"
+      			 deployRoot="src" 
+				 checkOnly="true"/>
+	</target>
+  
+  	<target name="deployCodeCheckOnlyWithoutTest">
+      <sf:deploy username="${target.username}"
+				 password="${target.password}"
+				 serverurl="${target.serverurl}" 
+                 testLevel="NoTestRun"
+      			 maxPoll="50"
+      			 pollWaitMillis="20000"
+      			 deployRoot="src" 
+				 checkOnly="true"/>
+	</target>
+  
+    <target name="quickDeploy">
+      <sf:deploy username="${target.username}"
+				 password="${target.password}"
+				 serverurl="${target.serverurl}" 
+                 testLevel="NoTestRun"
+      			 maxPoll="50"
+      			 pollWaitMillis="20000"
+      			 deployRoot="src"
+				 rollbackOnError="true"/>
+	</target>
+  
+  	<target name="deployCodeWithoutTest">
+      <sf:deploy username="${target.username}"
+				 password="${target.password}"
+				 serverurl="${target.serverurl}" 
+                 testLevel="NoTestRun"
+      			 maxPoll="50" 
+      			 pollWaitMillis="20000"
+      			 deployRoot="src" />
+	</target>
+  	
+  	<target name="testTask">
+      <echo> testTask! </echo>
+      <echo> ${usernamePep} </echo>
+    </target>
+  
+    <target name="retrieveCode">
+      <echo> HOLA! </echo>
+            
+      <mkdir dir="../src/codepkg"/>
+      <sf:retrieve username="${usernamePep}" 
+      			   password="${passwordPep}" 
+      			   serverurl="https://login.salesforce.com" 
+      			   maxPoll="50" 
+      			   retrieveTarget="../src/codepkg" 
+      			   unpackaged="../src/package.xml"/>
+      <echo> ADEU! </echo>
+    </target>
+  
+    <target name="retrieveCodeOK">
+      <echo> HOLA! </echo>
+            
+      <mkdir dir="../src/codepkg"/>
+      <sf:retrieve username="pepcosta8@gmail.com" 
+      			   password="Voufeingim0319!NbcPhJ3bOljJWr6cxOEFgQ0w" 
+      			   serverurl="https://login.salesforce.com" 
+      			   maxPoll="50" 
+      			   retrieveTarget="../src/codepkg" 
+      			   unpackaged="../src/package.xml"/>
+      <echo> ADEU! </echo>
+    </target>
+
+</project>
